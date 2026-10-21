@@ -5,9 +5,10 @@ jobs:
   info-syteme:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: verifier la route 3000
         run: |
           npm install
           npm run build 
-          npm start
+          npm start &
           curl -I http://localhost:3000 | sort
